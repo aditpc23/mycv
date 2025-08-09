@@ -15,6 +15,9 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
+          latexmk_use_shell_escape: true  # jika perlu shell-escape, bisa diaktifkan
+          compiler: pdflatex              # default pdflatex, bisa ganti ke xelatex jika perlu
+          latexmk_options: "-halt-on-error -file-line-error -interaction=nonstopmode"
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
